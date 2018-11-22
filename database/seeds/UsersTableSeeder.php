@@ -16,12 +16,11 @@ class UsersTableSeeder extends Seeder
         $admin->user_firstname = "Tódor"; 
         $admin->user_lastname = "Teszt";
         $admin->user_email = "test@test.com";
+        $admin->user_status = 1;
         $admin->password = bcrypt("password");
 
         $admin->save();
 
-        factory(App\User::class, 30)->create();//->each(function($user){
-        		//$user->posts()->save(factory(App\Post::class)->make());
-        //});
+        factory(App\User::class, 30)->create();
     }
 }

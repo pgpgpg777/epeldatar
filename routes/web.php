@@ -20,7 +20,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resources([
-    'users' => 'UserController'
+    'users' => 'UserController',
+    'groups' =>'GroupController'
 ]);
 
 Route::get('profile', 'UserController@profile');
