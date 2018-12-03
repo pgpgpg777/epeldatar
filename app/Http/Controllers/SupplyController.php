@@ -15,8 +15,8 @@ class SupplyController extends Controller
      */
     public function index()
     {
-        $supplies = Supply::sortable()->paginate(10);
-        return view('supplies.index', compact('supplies'));
+        $supplies = Supply::all();
+        return view('supplies.index', 'supplies' => $supplies);
     }
 
     /**

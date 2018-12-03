@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Group;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -22,8 +23,8 @@ class UserController extends Controller
     public function index()
     {
         //
-        $users = User::sortable()->paginate(10);
-        return view('users.index', compact('users'));
+        $users = User::all();
+        return view('users.index', 'users' => $users);
     }
 
     /**
@@ -72,7 +73,14 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return view('users.show', ['user'=>$user]);
+
+        $group_ids = DB::table('groupuser')->where('user_id', $user->id)->get();
+        $groups = array();
+
+        for($group_ids as $gid)
+            array_push($groups, Group::find($gid)->get());
+
+        return view('users.show', ['user'=>$user, 'groups' => $groups]);
         //return $user;
     }
 

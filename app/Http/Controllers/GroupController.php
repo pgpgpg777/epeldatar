@@ -1,4 +1,4 @@
-<?php
+a<?php
 
 namespace App\Http\Controllers;
 
@@ -17,8 +17,8 @@ class GroupController extends Controller
     public function index()
     {
         //
-        $groups = Group::sortable()->paginate(10);
-        return view('groups.index', compact('groups'));
+        $groups = Group::all();
+        return view('groups.index', 'groups' => $groups);
     }
 
     /**
@@ -40,12 +40,29 @@ class GroupController extends Controller
      */
     public function store(Request $request)
     {
+
+        $students = array();
+
+        foreach ($request as $key => $value) {
+            if(preg_match("/\d+diak/", $key))
+                array_push($students, $value);
+        }
+
+        //TODO: e-mail alapján létrehozni a groupuser bejegyzéseket
+
         //TODO
         $request->validate([
             'group_name' => 'required|string|max:50',
             'description' => 'required|string|max:255',
         ]);
 
+/**
+        { group_name: '',
+          description: '',
+          '1diak': 'asd@sdfg.hu',
+          '2diak': 'sdffsdf@asdf.hu',
+          '3diak': 'ydfasdf@dfgdfgh.hu' }
+*/
 
         $group = new Group;
 
@@ -70,7 +87,7 @@ class GroupController extends Controller
         $users = array();// User::where()->get();
         
         for($user_ids as $uid)
-            array_push($users, User::where('id', $uid)->get());
+            array_push($users, User::find($uid)->get());
         return view('groups.show', ['group'=>$group, 'users' => $users]);
     }
 

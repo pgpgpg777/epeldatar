@@ -15,8 +15,8 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $tasks = Task::sortable()->paginate(10);
-        return view('tasks.index', compact('tasks'));
+        $tasks = Task::all();
+        return view('tasks.index', 'tasks' => $tasks);
     }
 
     /**
@@ -37,6 +37,8 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
+
+
     }
 
     /**
