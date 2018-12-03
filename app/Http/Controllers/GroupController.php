@@ -1,4 +1,4 @@
-a<?php
+<?php
 
 namespace App\Http\Controllers;
 
@@ -18,7 +18,7 @@ class GroupController extends Controller
     {
         //
         $groups = Group::all();
-        return view('groups.index', 'groups' => $groups);
+        return view('groups.index', ['groups' => $groups]);
     }
 
     /**
@@ -84,9 +84,9 @@ class GroupController extends Controller
     {
         $user_ids = DB::table('groupuser')->where('group_id', $group->id)->get();
 
-        $users = array();// User::where()->get();
+        $users = array();
         
-        for($user_ids as $uid)
+        foreach($user_ids as $uid)
             array_push($users, User::find($uid)->get());
         return view('groups.show', ['group'=>$group, 'users' => $users]);
     }

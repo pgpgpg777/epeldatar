@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Task;
+use App\Description;
+use App\Question;
+use App\Answer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,8 +18,8 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $tasks = Task::all();
-        return view('tasks.index', 'tasks' => $tasks);
+      //  $tasks = Task::all();
+       // return view('tasks.index', ['tasks' => $tasks]);
     }
 
     /**
@@ -37,8 +40,19 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
+/*
+        { test_name: 'asdfasdfasdf',
+          teams: 'asdfasdfasdf',
+          description: 'asdfasdfasdf',
+          '1kerdes': 'sdfgsdfg',
+          '1valasz1': 'sdfgsdfg',
+          '1valasz2': 'sdfgsdfg',
+          '1jovagyrossz2': 'on',
+          '1valasz3': 'sdfg',
+          '2kerdes': 'sdfgsdfg',
+          '3kerdes': 'sdfgsdfg' }
 
-
+*/
     }
 
     /**

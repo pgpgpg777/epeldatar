@@ -1,42 +1,52 @@
-    <nav class="navbar navbar-dark sticky-top bg-dark navbar-expand-md p-0 flex-md-nowrap p-0">
-      <a class="navbar-brand col-sm-3 col-md-2 mr-0" img src="/uploads" href="{{ route('home') }}"></a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"><i class="fa fa-book" aria-hidden="true"></i></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-            <div class="container">
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li><a class="nav-link" href="{{ route('login') }}">Bejelentkezés</a></li>
-                            <li><a class="nav-link" href="{{ route('register') }}">Regisztráció</a></li>
-                        @else
-                            <li class="nav-item dropdown">
-                                
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="position:relative; padding-left:50px;">
-                                {{ Auth::user()->user_firstname }} <span class="caret"></span>
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    
-                                    <a class="dropdown-item" href="{{route('users.show', auth()->id())}}">
-                                        <span data-feather="user"></span>
-                                        &nbsp; Profil
-                                    </a>
-
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        <span data-feather="log-out"></span>
-                                        &nbsp; Kijelentkezés
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/tasks">Példatár</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Tanulás
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/tasks">Feladatok</a>
+                    <a class="dropdown-item" href="/supplies/create">Új segédanyag létrehozása</a>
+                    <a class="dropdown-item" href="/tasks/create">Új kvíz létrehozása</a>
                 </div>
-            </div>
-    </nav>
-
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown_groups" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Csoportok
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/groups">Csoportok</a>
+                    <a class="dropdown-item" href="/groups/create">Új csoport létrehozása</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown_users" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Felhasználók
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/users">Felhasználók</a>
+                    <a class="dropdown-item" href="/users/create">Új felhasználó létrehozása</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/profile">Profil</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout_form').submit();">Kilépés</a>
+            
+            <form id="logout_form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+            </li>
+        </ul>
+    </div>
+</nav>
