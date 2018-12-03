@@ -21,14 +21,9 @@
             font-family: 'Amatic SC', cursive;
             font-size: 24px;
             letter-spacing: 1px;
-            background: url("bg.png");
-        }
-        body {
-
             align-items: center;
-
             padding-bottom: 40px;
-            background-color: #f5f5f5;
+            background: url("bg.png");
         }
         .fa-book {
             font-size: 60px;
@@ -37,9 +32,13 @@
         .container{
             padding-top: 40px;
         }
-
-        hr.new {
-            border-top: 3px dashed #6c757d;
+        #cim {
+            font-weight: bold;
+        }
+        .keret{
+            border: 2px;
+            border-style: dashed;
+            border-color: #adb5bd;
         }
         .row{
             margin-bottom: 40px;
@@ -51,14 +50,12 @@
             background-color: rgba(4, 208, 105, 0.3)!important;
             color: black;
             border: 0px;
-            padding: 4px;
+            margin-bottom: 20px;
         }
-        .table td, .table th {
-            border-top: 3px dashed #c0c4c7;
-        }
-        thead {
-            background-color: #00000008;
-        }
+        .text_box{ margin-bottom: 20px; }
+        .video_box{ margin-bottom: 20px; }
+        .pic_box{ margin-bottom: 20px; }
+
     </style>
 </head>
 <body class="text-center">
@@ -108,44 +105,79 @@
                 <a class="nav-link" href="index.html">Kilépés</a>
             </li>
         </ul>
+
     </div>
 </nav>
 
 <div class="container">
     <div class="row">
-        <div class="col-lg-12 ">
-            <h2>Feladatok: példatár</h2>
-            <table class="table table-hover">
-                <thead>
-                <tr>
-                    <th scope="col">Név</th>
-                    <th scope="col">Típus</th>
-                    <th scope="col">Leírás</th>
-                    <th scope="col">&nbsp;</th>
-                    <th scope="col">&nbsp;</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">Földrajz teszt</th>
-                    <td>kvíz</td>
-                    <td>Kontinensek kérdéssor.</td>
-                    <td><a class="btn btn-lg btn-success btn-block btn_custom" href="{{route('tasks.edit', $task->id)}}">Saját másolat</a></td>
-                    <td><a class="btn btn-lg btn-success btn-block btn_custom" href="{{route('tasks.edit', $task->id)}}">Megtekintés</a></td>
-                </tr>
-                <tr>
-                    <th scope="row">Irodalomóra segédlet</th>
-                    <td>segédlet</td>
-                    <td>Petőfi Sándor Szülőföldem vers és elemzése.</td>
-                    <td><a class="btn btn-lg btn-success btn-block btn_custom" href="{{route('tasks.edit, $task->id')}}">Saját másolat</a></td>
-                    <td><a class="btn btn-lg btn-success btn-block btn_custom" href="{{route('tasks.edit', $task->id)}}">Megtekintés</a></td>
-                </tr>
-                </tbody>
-            </table>
+        <div class="col-lg-12 keret">
+            <!-- segédlet neve -->
+            <h1>Irodalomórai segédlet</h1>
+            <!-- segédlet leírása -->
+            <p>Petőfi Sándor Szülőföldem című versét fogjuk elemezni.</p>
+            <!-- kép doboz -->
+            <div class="pic_box">
+                <img width="100%" src="https://i.ytimg.com/vi/6mRi68uIw7E/maxresdefault.jpg">
+            </div>
+            <!-- szöveg doboz -->
+            <div class="text_box">
+                SZÜLŐFÖLDEMEN
+                Itt születtem én ezen a tájon
+                Az alföldi szép nagy rónaságon,
+                Ez a város születésem helye,
+                Mintha dajkám dalával vón tele,
+                Most is hallom e dalt, elhangzott bár:
+                „Cserebogár, sárga cserebogár!”
+
+                Ugy mentem el innen, mint kis gyermek,
+                És mint meglett ember úgy jöttem meg.
+                Hej azóta húsz esztendő telt el
+                Megrakodva búval és örömmel...
+                Húsz esztendő... az idő hogy lejár!
+                „Cserebogár, sárga cserebogár.”
+
+                Hol vagytok, ti régi játszótársak?
+                Közületek csak egyet is lássak!
+                Foglaljatok helyet itt mellettem,
+                Hadd felejtsem el, hogy férfi lettem,
+                Hogy vállamon huszonöt év van már...
+                „Cserebogár, sárga cserebogár.”
+
+                Mint nyugtalan madár az ágakon,
+                Helyrül-helyre röpköd gondolatom,
+                Szedegeti a sok szép emléket,
+                Mint a méh a virágról a mézet;
+                Minden régi kedves helyet bejár...
+                „Cserebogár, sárga cserebogár!”
+
+                Gyermek vagyok, gyermek lettem újra,
+                Lovagolok fűzfasípot fújva,
+                Lovagolok szilaj nádparipán,
+                Vályuhoz mék, lovam inni kiván,
+                Megitattam, gyi lovam, gyi Betyár...
+                „Cserebogár, sárga cserebogár!”
+
+                Megkondúl az esteli harangszó,
+                Kifáradt már a lovas és a ló,
+                Hazamegyek, ölébe vesz dajkám,
+                Az altató nóta hangzik ajkán,
+                Hallgatom, s félálomban vagyok már...
+                „Cserebogár, sárga cserebogár”... – –
+
+                (Félegyháza, 1848. június 6–8.)
+            </div>
+            <!-- video doboz -->
+            <div class="video_box">
+                <iframe width="420" height="315"
+                        src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                </iframe>
+            </div>
         </div>
     </div>
-</div>
 
+
+</div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

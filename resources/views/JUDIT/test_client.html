@@ -21,14 +21,9 @@
             font-family: 'Amatic SC', cursive;
             font-size: 24px;
             letter-spacing: 1px;
-            background: url("bg.png");
-        }
-        body {
-
             align-items: center;
-
             padding-bottom: 40px;
-            background-color: #f5f5f5;
+            background: url("bg.png");
         }
         .fa-book {
             font-size: 60px;
@@ -37,9 +32,13 @@
         .container{
             padding-top: 40px;
         }
-
-        hr.new {
-            border-top: 3px dashed #6c757d;
+        #cim {
+            font-weight: bold;
+        }
+        .keret{
+            border: 2px;
+            border-style: dashed;
+            border-color: #adb5bd;
         }
         .row{
             margin-bottom: 40px;
@@ -51,7 +50,7 @@
             background-color: rgba(4, 208, 105, 0.3)!important;
             color: black;
             border: 0px;
-            padding: 4px;
+            margin-bottom: 20px;
         }
         .table td, .table th {
             border-top: 3px dashed #c0c4c7;
@@ -59,7 +58,9 @@
         thead {
             background-color: #00000008;
         }
+
     </style>
+
 </head>
 <body class="text-center">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -108,44 +109,102 @@
                 <a class="nav-link" href="index.html">Kilépés</a>
             </li>
         </ul>
+
     </div>
 </nav>
 
 <div class="container">
     <div class="row">
-        <div class="col-lg-12 ">
-            <h2>Feladatok: példatár</h2>
-            <table class="table table-hover">
-                <thead>
-                <tr>
-                    <th scope="col">Név</th>
-                    <th scope="col">Típus</th>
-                    <th scope="col">Leírás</th>
-                    <th scope="col">&nbsp;</th>
-                    <th scope="col">&nbsp;</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">Földrajz teszt</th>
-                    <td>kvíz</td>
-                    <td>Kontinensek kérdéssor.</td>
-                    <td><a class="btn btn-lg btn-success btn-block btn_custom" href="{{route('tasks.edit', $task->id)}}">Saját másolat</a></td>
-                    <td><a class="btn btn-lg btn-success btn-block btn_custom" href="{{route('tasks.edit', $task->id)}}">Megtekintés</a></td>
-                </tr>
-                <tr>
-                    <th scope="row">Irodalomóra segédlet</th>
-                    <td>segédlet</td>
-                    <td>Petőfi Sándor Szülőföldem vers és elemzése.</td>
-                    <td><a class="btn btn-lg btn-success btn-block btn_custom" href="{{route('tasks.edit, $task->id')}}">Saját másolat</a></td>
-                    <td><a class="btn btn-lg btn-success btn-block btn_custom" href="{{route('tasks.edit', $task->id)}}">Megtekintés</a></td>
-                </tr>
-                </tbody>
-            </table>
+        <div class="col-lg-12 keret">
+            <!-- kvíz neve -->
+            <h1>Földrajz teszt</h1>
+            <!-- kvíz leírása -->
+            <p>Kontinensek, városok, előző órán tanultak ismétlése.</p>
+
+            <form method="post" action="{{ }}">
+                <!-- egy kérdés 1 táblázat -->
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Hány kontinens van?</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="1ch1" name="1ch1">
+                                <label class="form-check-label" for="1ch1">5</label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="1ch2" name="1ch2">
+                                <label class="form-check-label" for="1ch2">6</label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="1ch3" name="1ch3">
+                                <label class="form-check-label" for="1ch3">7</label>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <!-- egy kérdés 1 táblázat -->
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Mi Magyarország fővárosa?</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="2ch1" name="2ch1">
+                                <label class="form-check-label" for="2ch1">Budapest</label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="2ch2" name="2ch2">
+                                <label class="form-check-label" for="2ch2">Bukarest</label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="2ch3" name="2ch3">
+                                <label class="form-check-label" for="2ch3">London</label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="2ch4" name="2ch3">
+                                <label class="form-check-label" for="2ch3">Székesfehérvár</label>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <button type="submit" class="btn btn-success btn_custom">Mentés</button>
+            </form>
         </div>
     </div>
-</div>
 
+
+</div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
