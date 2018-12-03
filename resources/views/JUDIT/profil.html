@@ -59,6 +59,9 @@
         thead {
             background-color: #00000008;
         }
+        .pad{
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body class="text-center">
@@ -113,8 +116,50 @@
 
 <div class="container">
     <div class="row">
+        <div class="offset-lg-3 col-lg-6">
+            <h2>Profil</h2>
+            <form class="form-signin" action="login" method="post">
+                <input type="text" id="first_name" name="first_name" class="form-control pad" placeholder="Vezetéknév" required autofocus>
+
+                <input type="text" id="second_name" name="second_name" class="form-control pad" placeholder="Keresztnév" required>
+
+                <input type="email" id="inputEmail" name="inputEmail" class="form-control pad" placeholder="Email-cím" required>
+
+                <input type="password" id="inputPassword0" name="pw0" class="form-control pad" placeholder="Jelszó" required>
+
+                <input type="password" id="inputPassword1" name="pw1" class="form-control pad" placeholder="Jelszó mégegyszer" required>
+
+                <button class="btn btn-lg btn-primary btn-block btn_custom" type="submit">Módosítás</button>
+
+            </form>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-lg-12 ">
-            <h2>Feladatok: példatár</h2>
+            <h3>Tagságaim</h3>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">Név</th>
+                    <th scope="col">Típus</th>
+                    <th scope="col">Leírás</th>
+                    <th scope="col">&nbsp;</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">Földrajz teszt</th>
+                    <td>kvíz</td>
+                    <td>Kontinensek kérdéssor.</td>
+                    <td><a class="btn btn-lg btn-success btn-block btn_custom" href="{{route('tasks.edit', $task->id)}}">Belépés</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 ">
+            <h3>Saját példatáram</h3>
             <table class="table table-hover">
                 <thead>
                 <tr>
@@ -130,14 +175,7 @@
                     <th scope="row">Földrajz teszt</th>
                     <td>kvíz</td>
                     <td>Kontinensek kérdéssor.</td>
-                    <td><a class="btn btn-lg btn-success btn-block btn_custom" href="{{route('tasks.edit', $task->id)}}">Saját másolat</a></td>
-                    <td><a class="btn btn-lg btn-success btn-block btn_custom" href="{{route('tasks.edit', $task->id)}}">Megtekintés</a></td>
-                </tr>
-                <tr>
-                    <th scope="row">Irodalom óra segédlet</th>
-                    <td>segédlet</td>
-                    <td>Petőfi Sándor Szülőföldem vers és elemzése.</td>
-                    <td><a class="btn btn-lg btn-success btn-block btn_custom" href="{{route('tasks.edit, $task->id')}}">Saját másolat</a></td>
+                    <td><a class="btn btn-lg btn-success btn-block btn_custom" href="{{route('tasks.edit', $task->id)}}">Szerkesztés</a></td>
                     <td><a class="btn btn-lg btn-success btn-block btn_custom" href="{{route('tasks.edit', $task->id)}}">Megtekintés</a></td>
                 </tr>
                 </tbody>
