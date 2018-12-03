@@ -24,7 +24,7 @@ class UserController extends Controller
     {
         //
         $users = User::all();
-        return view('users.index', 'users' => $users);
+        return view('users.index', ['users' => $users]);
     }
 
     /**
@@ -77,7 +77,7 @@ class UserController extends Controller
         $group_ids = DB::table('groupuser')->where('user_id', $user->id)->get();
         $groups = array();
 
-        for($group_ids as $gid)
+        foreach($group_ids as $gid)
             array_push($groups, Group::find($gid)->get());
 
         return view('users.show', ['user'=>$user, 'groups' => $groups]);

@@ -16,7 +16,7 @@ class SupplyController extends Controller
     public function index()
     {
         $supplies = Supply::all();
-        return view('supplies.index', 'supplies' => $supplies);
+        return view('supplies.index', ['supplies' => $supplies]);
     }
 
     /**
@@ -37,8 +37,16 @@ class SupplyController extends Controller
      */
     public function store(Request $request)
     {
-        //TODO
-
+    /*    
+        { supplies_name: 'wetrwegr',
+          supplies_teams: 'sdfgsdfg',
+          supplier_desc: 'sdfgsdfgsdfg',
+          '0_desc': 'sdfgsdfgsdfg',
+          '1_pic': 'Screenshot_1543786051.png',
+          '2_youtube_url': 'http://www.youtube.com/embed/tbuInY22oK8',
+          '3_desc':
+           'asdfasdf éldfkgjioáij kjsadféishf opifgj apdfogij asőoidf ,odsfj kn éelk rjoaifj asdofkj lkj qweáotj aásojgdf aésdlkgj éij aéskdhf éoiauewtoiupiweroiu kjdahfgkjan ksjdfhaésidfj' }
+*/
     }
 
     /**
