@@ -1,5 +1,5 @@
     <nav class="navbar navbar-dark sticky-top bg-dark navbar-expand-md p-0 flex-md-nowrap p-0">
-      <a class="navbar-brand col-sm-3 col-md-2 mr-0" img src="/uploads" href="#"></a>
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" img src="/uploads" href="{{ route('home') }}"></a>
 
             <div class="container">
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">

@@ -8,7 +8,7 @@
                         <a href="#usersSubmenu" class="nav-link" data-toggle="collapse">Felhasználók</a>
                         <ul class="collapse list-unstyled" id="usersSubmenu">
                             <li><a href="/users" class="nav-link">
-                                <span data-feather="users"></span>
+                                <span data-feather="user"></span>
                                     Felhasználók listázása</a>
                             </li>
                             <li><a href="/users/create" class="nav-link">
@@ -19,8 +19,8 @@
                     </li><hr>
 
                     <li class="active">
-                            <a href="#customersSubmenu" class="nav-link" data-toggle="collapse">Csoportok</a>
-                            <ul class="collapse list-unstyled" id="customersSubmenu">
+                            <a href="#groupsSubmenu" class="nav-link" data-toggle="collapse">Csoportok</a>
+                            <ul class="collapse list-unstyled" id="groupsSubmenu">
                             <li><a class="nav-link" href="/groups">
                                 <span data-feather="users"></span>
                                     Csoportok listázása</a>
@@ -33,14 +33,14 @@
                     </li><hr>
 
                     <li class="active">
-                            <a href="#customersSubmenu" class="nav-link" data-toggle="collapse">Feladatok</a>
-                            <ul class="collapse list-unstyled" id="customersSubmenu">
+                            <a href="#tasksSubmenu" class="nav-link" data-toggle="collapse">Feladatok</a>
+                            <ul class="collapse list-unstyled" id="tasksSubmenu">
                             <li><a class="nav-link" href="/tasks">
-                                <span data-feather="users"></span>
+                                <span data-feather="book"></span>
                                     Feladatok listázása</a>
 
                             <a class="nav-link" href="/tasks/create">
-                                <span data-feather="user-plus"></span>
+                                <span data-feather="book-open"></span>
                                     Feladatok létrehozása</a>
                             </li>
                             </ul>

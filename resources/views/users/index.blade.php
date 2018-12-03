@@ -17,12 +17,12 @@
     <tbody>
         @foreach($users as $user)
             <tr>
-                <span><td><a href="{{route("users.show",$user->id)}}">{{$user->user_firstname}}</td></a></span>
-                <td><a href="{{route("users.show",$user->id)}}">{{$user->user_lastname}}</td></a>
-                <td><a href="{{route("users.show",$user->id)}}">{{$user->user_email}}</td></a>
-                <td><a href="{{route("users.show",$user->id)}}">{{$user->user_status}}</td></a>
-                <td><a href="{{route("users.edit",$user->id)}}">Módosít</a></td>
-                <td><a href="{{route("users.destroy",$user->id)}}">Töröl</a></td>             
+                <span><td><a href="{{route('users.show',$user->id)}}">{{$user->user_firstname}}</td></a></span>
+                <td><a href="{{route('users.show',$user->id)}}">{{$user->user_lastname}}</td></a>
+                <td><a href="{{route('users.show',$user->id)}}">{{$user->user_email}}</td></a>
+                <td><a href="{{route('users.show',$user->id)}}">{{$user->user_status}}</td></a>
+                <td><a href="{{route('users.edit',$user->id)}}">Módosít</a></td>
+                <td><a href="{{route('users.destroy',$user->id)}}">Töröl</a></td>             
             </tr>
         @endforeach
     </tbody>
