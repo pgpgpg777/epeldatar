@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Group;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -27,7 +28,7 @@ class GroupController extends Controller
      */
     public function create()
     {
-        //
+        
         return view('groups.create');
     }
 
@@ -64,8 +65,13 @@ class GroupController extends Controller
      */
     public function show(Group $group)
     {
-        //
-        return view('groups.show', ['group'=>$group]);
+        $user_ids = DB::table('groupuser')->where('group_id', $group->id)->get();
+
+        $users = array();// User::where()->get();
+        
+        for($user_ids as $uid)
+            array_push($users, User::where('id', $uid)->get());
+        return view('groups.show', ['group'=>$group, 'users' => $users]);
     }
 
     /**
@@ -76,7 +82,7 @@ class GroupController extends Controller
      */
     public function edit(Group $group)
     {
-        //
+        
         return view('groups.edit', ['group'=>$group]);
     }
 

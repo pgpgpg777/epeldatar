@@ -21,7 +21,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resources([
     'users' => 'UserController',
-    'groups' =>'GroupController'
+    'groups' =>'GroupController',
+    'tasks' =>'TaskController',
+    'supplies' => 'SupplyController'
 ]);
 
 Route::get('profile', 'UserController@profile');
