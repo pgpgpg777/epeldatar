@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ca29f40-fed0-48f7-82cc-6bf031cbfda8" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/JUDIT/profil.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/JUDIT/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/JUDIT/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/JUDIT/new_supplies.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/JUDIT/new_supplies.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/JUDIT/new_task.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/JUDIT/new_task.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/JUDIT/new_user.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/JUDIT/new_user.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/JUDIT/tasks.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/JUDIT/tasks.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/JUDIT/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/JUDIT/users.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/JUDIT/groups.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/JUDIT/groups.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,17 +28,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/JUDIT/users.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="116" column="31" selection-end-line="146" />
+            <state relative-caret-position="63">
+              <caret line="111" column="6" lean-forward="true" selection-end-line="146" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/JUDIT/profil.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="434">
-              <caret line="134" column="19" selection-start-line="134" selection-start-column="19" selection-end-line="134" selection-end-column="19" />
+            <state relative-caret-position="213">
+              <caret line="121" column="92" selection-start-line="121" selection-start-column="92" selection-end-line="121" selection-end-column="92" />
               <folding>
                 <element signature="e#5551#5557#1" expanded="true" />
                 <element signature="e#6382#6388#1" expanded="true" />
@@ -55,56 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/JUDIT/reg.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="77" selection-start-line="77" selection-end-line="94" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/JUDIT/navbar.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="40" column="53" selection-start-line="40" selection-start-column="53" selection-end-line="40" selection-end-column="53" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/JUDIT/groups.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/JUDIT/new_user.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="113" column="53" selection-start-line="113" selection-start-column="53" selection-end-line="113" selection-end-column="53" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/JUDIT/new_task.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="135" column="53" selection-start-line="135" selection-start-column="53" selection-end-line="135" selection-end-column="53" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/JUDIT/new_supplies.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="179" column="53" selection-start-line="179" selection-start-column="53" selection-end-line="179" selection-end-column="53" />
+            <state relative-caret-position="468">
+              <caret line="128" column="24" selection-start-line="128" selection-start-column="24" selection-end-line="128" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -131,7 +79,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/UserController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/User_rightController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ServiceController.php" />
-        <option value="$PROJECT_DIR$/resources/views/JUDIT/groups.html" />
         <option value="$PROJECT_DIR$/resources/views/JUDIT/reg.html" />
         <option value="$PROJECT_DIR$/resources/views/JUDIT/users.html" />
         <option value="$PROJECT_DIR$/resources/views/JUDIT/navbar.html" />
@@ -140,6 +87,7 @@
         <option value="$PROJECT_DIR$/resources/views/JUDIT/new_supplies.html" />
         <option value="$PROJECT_DIR$/resources/views/JUDIT/tasks.html" />
         <option value="$PROJECT_DIR$/resources/views/JUDIT/profil.html" />
+        <option value="$PROJECT_DIR$/resources/views/JUDIT/groups.html" />
       </list>
     </option>
   </component>
@@ -222,12 +170,12 @@
       <workItem from="1521655797834" duration="1361000" />
       <workItem from="1521704407960" duration="4194000" />
       <workItem from="1521752465723" duration="301000" />
-      <workItem from="1543840620042" duration="5134000" />
+      <workItem from="1543840620042" duration="5995000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14087000" />
+    <option name="totallyTimeSpent" value="14948000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -345,24 +293,10 @@
     <entry file="file://$PROJECT_DIR$/resources/views/JUDIT/index.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/JUDIT/users.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="116" column="31" selection-end-line="146" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/JUDIT/navbar.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="40" column="53" selection-start-line="40" selection-start-column="53" selection-end-line="40" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/JUDIT/groups.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -407,13 +341,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/JUDIT/profil.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="134" column="19" selection-start-line="134" selection-start-column="19" selection-end-line="134" selection-end-column="19" />
+        <state relative-caret-position="213">
+          <caret line="121" column="92" selection-start-line="121" selection-start-column="92" selection-end-line="121" selection-end-column="92" />
           <folding>
             <element signature="e#5551#5557#1" expanded="true" />
             <element signature="e#6382#6388#1" expanded="true" />
             <element signature="e#6430#6436#1" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/JUDIT/users.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="111" column="6" lean-forward="true" selection-end-line="146" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/JUDIT/groups.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="128" column="24" selection-start-line="128" selection-start-column="24" selection-end-line="128" selection-end-column="24" />
         </state>
       </provider>
     </entry>
