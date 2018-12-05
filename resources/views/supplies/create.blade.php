@@ -23,7 +23,7 @@
             letter-spacing: 1px;
             align-items: center;
             padding-bottom: 40px;
-            background: url("bg.png");
+            background: url("/bg.png");
         }
         .fa-book {
             font-size: 60px;
@@ -137,58 +137,10 @@
     </script>
 </head>
 <body class="text-center">
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#"><i class="fa fa-book" aria-hidden="true"></i></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Példatár</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Tanulás
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="tasks.html">Feladatok</a>
-                    <a class="dropdown-item" href="new_supplies.html">Új segédanyag létrehozása</a>
-                    <a class="dropdown-item" href="new_task.html">Új kvíz létrehozása</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown_groups" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Csoportok
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="groups.html">Csoportok</a>
-                    <a class="dropdown-item" href="new_group.html">Új csoport létrehozása</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown_users" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Felhasználók
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="users.html">Felhasználók</a>
-                    <a class="dropdown-item" href="new_user.html">Új felhasználó létrehozása</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="profil.html">Profil</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">Kilépés</a>
-            </li>
-        </ul>
-
-    </div>
-</nav>
-
+@include('layouts.nav')
 <div class="container">
     <form method="post" action="{{ route('supplies.store') }}">
+        @csrf
     <div class="row">
         <div class="col-lg-6">
                 <div class="form-group">
@@ -196,12 +148,12 @@
                     <input type="text" class="form-control" onkeyUp="document.getElementById('cim').innerHTML = this.value" id="supplies_name" name="supplies_name" placeholder="Irodalom óra segédanyagok">
                 </div>
                 <div class="form-group">
-                    <label for="supplies_name">Diákok, csoportok hozzárendelése</label>
+                    <label for="supplies_teams">Csoportok hozzárendelése</label>
                     <input type="text" class="form-control" id="supplies_teams" name="supplies_teams" placeholder="pl.: 8.A">
                 </div>
                 <div class="form-group">
-                    <label for="supplier_desc">Leírás</label>
-                    <textarea class="form-control" onkeyUp="document.getElementById('leiras').innerHTML = this.value" id="supplier_desc" name="supplier_desc" rows="3"></textarea>
+                    <label for="supplies_desc">Leírás</label>
+                    <textarea class="form-control" onkeyUp="document.getElementById('leiras').innerHTML = this.value" id="supplies_desc" name="supplies_desc" rows="3"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="exa">Komponensek hozzáadása</label>
@@ -216,7 +168,7 @@
                 </div>
             </div>
         <div class="col-lg-6 keret">
-            <h2>Előlnézet</h2>
+            <h2>Előnézet</h2>
             <div id="cim"></div><br>
             <div id="leiras"></div><br>
             <div id="peldak"></div>

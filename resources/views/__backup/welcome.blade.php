@@ -66,17 +66,9 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Kezdőoldal</a>
-                    @else
-                        <a href="{{ route('login') }}">Bejelentkezés</a>
-                        <a href="{{ route('register') }}">Regisztráció</a>
-                    @endauth
+            <div class="top-right links">
+                <a href="{{ url('/home') }}">Kezdőoldal</a>
                 </div>
-            @endif
-
             <div class="content">
                 <div class="title m-b-md">
                     E-Példatár

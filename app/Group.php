@@ -3,11 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Kyslik\ColumnSortable\Sortable;
 
 class Group extends Model
 {
-    use Sortable;
 
     /**
      * The attributes that are mass assignable.
@@ -19,5 +17,4 @@ class Group extends Model
 
     protected $primaryKey = 'id';
 
-    public $sortable = ['id', 'group_name', 'description'];
 }

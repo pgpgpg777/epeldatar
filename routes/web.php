@@ -26,7 +26,9 @@ Route::resources([
     'supplies' => 'SupplyController'
 ]);
 
-Route::get('profile', 'UserController@profile');
+Route::get('/profile', 'UserController@profile')->name('profile');
+
+Route::get('/show_supply/{supply_id}', 'SupplyController@show_supply')->name('show_supply');
 
 Auth::routes();
 

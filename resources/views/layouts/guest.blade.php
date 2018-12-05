@@ -16,25 +16,6 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-
-                <!--{{ config('app.name', '') }}-->
-                @if(Auth::check())
-                <div class="proba-masthead">
-                  <div class="container">
-                    <nav class="nav proba-nav">
-                      <a class="nav-link active" href="/home">Home</a>
-                      <a class="nav-link" href="/customers">Vevők</a>
-                      <a class="nav-link" href="/services">Szolgáltatások</a>
-                      <div class="container">
-                    <nav class="nav proba-nav">
-                        <a class="nav-link" href="/customers/create">Vevők létrehozása</a>
-                        <a class="nav-link" href="/services/create">Szolgáltatások létrehozása</a>
-                    </nav></div>
-
-                    </nav>
-                  </div>
-                </div>
-                @endif
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -49,10 +30,6 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-                        @guest
-                            <li><a class="nav-link" href="{{ route('login') }}">Login</a></li>
-                            <li><a class="nav-link" href="{{ route('register') }}">Register</a></li>
-                        @else
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {{ Auth::user()->user_firstname }} <span class="caret"></span>

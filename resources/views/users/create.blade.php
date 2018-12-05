@@ -21,7 +21,7 @@
             font-family: 'Amatic SC', cursive;
             font-size: 24px;
             letter-spacing: 1px;
-            background: url("bg.png");
+            background: url("/bg.png");
         }
         body {
 
@@ -71,79 +71,33 @@
     </script>
 </head>
 <body class="text-center">
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#"><i class="fa fa-book" aria-hidden="true"></i></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Példatár</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Tanulás
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="tasks.html">Feladatok</a>
-                    <a class="dropdown-item" href="new_supplies.html">Új segédanyag létrehozása</a>
-                    <a class="dropdown-item" href="new_task.html">Új kvíz létrehozása</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown_groups" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Csoportok
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="groups.html">Csoportok</a>
-                    <a class="dropdown-item" href="new_group.html">Új csoport létrehozása</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown_users" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Felhasználók
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="users.html">Felhasználók</a>
-                    <a class="dropdown-item" href="new_user.html">Új felhasználó létrehozása</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="profil.html">Profil</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">Kilépés</a>
-            </li>
-        </ul>
-    </div>
-</nav>
+@include('layouts.nav')
 
 <div class="container">
     <div class="row">
         <div class="offset-lg-1 col-lg-10 ">
             <h2>Új felhasználó létrehozása</h2>
             <form method="post" action="{{ route('users.store') }}">
+                @csrf
                 <div class="form-group">
-                    <label for="user_first_name">Felhasználó vezetékneve</label>
-                    <input type="text" class="form-control"  id="user_first_name" name="user_first_name" placeholder="Gipsz">
+                    <label for="user_lastname">Felhasználó vezetékneve</label>
+                    <input type="text" class="form-control"  id="user_lastname" name="user_lastname" placeholder="Gipsz">
                 </div>
                 <div class="form-group">
-                    <label for="user_second_name">Felhasználó keresztneve</label>
-                    <input type="text" class="form-control"  id="user_second_name" name="user_second_name" placeholder="Jakab">
+                    <label for="user_firstname">Felhasználó keresztneve</label>
+                    <input type="text" class="form-control"  id="user_firstname" name="user_firstname" placeholder="Jakab">
                 </div>
                 <div class="form-group">
                     <label for="user_email">Felhasználó e-mail címe</label>
                     <input type="email" class="form-control"  id="user_email" name="user_email" placeholder="jakab@gipsz.hu">
                 </div>
                 <div class="form-group">
-                    <label for="user_pw">Felhasználó jelszava</label>
-                    <input type="password" class="form-control"  id="user_pw" name="user_pw">
+                    <label for="password">Felhasználó jelszava</label>
+                    <input type="password" class="form-control"  id="password" name="password">
                 </div>
                 <div class="form-group">
-                    <label for="user_pw2">Felhasználó jelszava mégegyszer</label>
-                    <input type="password" class="form-control"  id="user_pw2" name="user_pw2">
+                    <label for="password-confirm">Felhasználó jelszava mégegyszer</label>
+                    <input type="password" class="form-control"  id="password-confirm" name="password-confirm">
                 </div>
                 <button type="submit" class="btn btn-default">Lérehozás</button><br>
             </form>

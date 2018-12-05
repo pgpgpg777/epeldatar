@@ -21,7 +21,7 @@
             font-family: 'Amatic SC', cursive;
             font-size: 24px;
             letter-spacing: 1px;
-            background: url("bg.png");
+            background: url("/bg.png");
         }
         body {
 
@@ -79,12 +79,20 @@
                 </tr>
                 </thead>
                 <tbody>
+
+                @foreach($users as $user)
                 <tr>
-                    <th scope="row">Gipsz</th>
-                    <td>Jakab</td>
-                    <td>gipsz@jakab.hu</td>
-                    <td>8.A, 7.A</td>
+                    <th scope="row">{{$user->user_lastname}}</th>
+                    <td>{{$user->user_firstname}}</td>
+                    <td>{{$user->user_email}}</td>
+                    <td>@ foreach($groups as $key => $group)
+                        @ if($key == $user->id)
+                        {/{$group->group_name}}, 
+                        @ endif
+                        @ endforeach
+                    </td>
                 </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>

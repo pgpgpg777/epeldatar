@@ -21,7 +21,7 @@
             font-family: 'Amatic SC', cursive;
             font-size: 24px;
             letter-spacing: 1px;
-            background: url("bg.png");
+            background: url("/bg.png");
         }
         body {
 

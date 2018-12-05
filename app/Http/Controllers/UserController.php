@@ -5,13 +5,26 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Group;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Auth;
 
 class UserController extends Controller
 {
 
     public function profile(){
-        return view('profile', array('user' => Auth::user()) );
+       // return view('profile', array('user' => Auth::user()) );
+
+        $group_ids = DB::table('groupuser')->where('user_id', Auth::user()->id)->get();
+        $groups = array();
+       // $tasks = array();
+
+        foreach($group_ids as $gid){
+            $gr = Group::find($gid->group_id);
+            array_push($groups, $gr);
+            $tasks = DB::table('descriptions')->where('group_id', $gid->group_id)->get();
+        }
+
+        return view('profile', ['user'=>Auth::user(), 'groups' => $groups, 'tasks' => $tasks]);
     }
 
 
@@ -24,7 +37,19 @@ class UserController extends Controller
     {
         //
         $users = User::all();
-        return view('users.index', ['users' => $users]);
+        $groups = array();
+/*
+        foreach ($users as $key => $user) {
+            $groupids =  DB::table('groupuser')->where('user_id', $user->id)->get();
+            $groups[$user->id] = array();
+            foreach ($groupids as $gid) {
+                $gr = Group::find($gid);
+                alert($gr->group_name);
+                array_push($groups[$user->id], $gr);
+            }
+        }
+*/
+        return view('users.index', ['users' => $users/*, 'groups' => $groups*/]);
     }
 
     /**
@@ -53,7 +78,7 @@ class UserController extends Controller
             'user_email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
-        //
+        
         $user = new User;
         $user->user_firstname = $request->user_firstname;
         $user->user_lastname = $request->user_lastname;
@@ -76,11 +101,11 @@ class UserController extends Controller
 
         $group_ids = DB::table('groupuser')->where('user_id', $user->id)->get();
         $groups = array();
-
+/*
         foreach($group_ids as $gid)
-            array_push($groups, Group::find($gid)->get());
-
-        return view('users.show', ['user'=>$user, 'groups' => $groups]);
+            array_push($groups, Group::find($gid));
+*/
+        return view('users.show', ['user'=>$user/*, 'groups' => $groups*/]);
         //return $user;
     }
 

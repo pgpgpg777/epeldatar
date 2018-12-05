@@ -21,7 +21,7 @@
             font-family: 'Amatic SC', cursive;
             font-size: 24px;
             letter-spacing: 1px;
-            background: url("bg.png");
+            background: url("/bg.png");
         }
         body {
 
@@ -65,69 +65,23 @@
     </style>
 </head>
 <body class="text-center">
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#"><i class="fa fa-book" aria-hidden="true"></i></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Példatár</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Tanulás
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="tasks.html">Feladatok</a>
-                    <a class="dropdown-item" href="new_supplies.html">Új segédanyag létrehozása</a>
-                    <a class="dropdown-item" href="new_task.html">Új kvíz létrehozása</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown_groups" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Csoportok
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="groups.html">Csoportok</a>
-                    <a class="dropdown-item" href="new_group.html">Új csoport létrehozása</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown_users" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Felhasználók
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="users.html">Felhasználók</a>
-                    <a class="dropdown-item" href="new_user.html">Új felhasználó létrehozása</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="profil.html">Profil</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">Kilépés</a>
-            </li>
-        </ul>
-    </div>
-</nav>
+@include ('layouts.nav')
 
 <div class="container">
     <div class="row">
         <div class="offset-lg-3 col-lg-6">
             <h2>Profil</h2>
-            <form class="form-signin" action="login" method="post">
-                <input type="text" id="first_name" name="first_name" class="form-control pad" placeholder="Vezetéknév" required autofocus>
+            <form class="form-signin" action="{{ route('users.update', $user->id) }}"method="post">
+                @method("PUT")
+                <input type="text" id="user_lastname" name="user_lastname" class="form-control pad" placeholder="Vezetéknév" required autofocus value="{{ $user->user_lastname }}">
 
-                <input type="text" id="second_name" name="second_name" class="form-control pad" placeholder="Keresztnév" required>
+                <input type="text" id="user_firstname" name="user_firstname" class="form-control pad" placeholder="Keresztnév" required value="{{ $user->user_firstname }}">
 
-                <input type="email" id="inputEmail" name="inputEmail" class="form-control pad" placeholder="Email-cím" required>
+                <input type="email" id="user_email" name="user_email" class="form-control pad" placeholder="Email-cím" required value="{{ $user->user_email }}">
 
-                <input type="password" id="inputPassword0" name="pw0" class="form-control pad" placeholder="Jelszó" required>
+                <input type="password" id="inputPassword0" name="password" class="form-control pad" placeholder="Jelszó" >
 
-                <input type="password" id="inputPassword1" name="pw1" class="form-control pad" placeholder="Jelszó mégegyszer" required>
+                <input type="password" id="inputPassword1" name="password-confirm" class="form-control pad" placeholder="Jelszó mégegyszer">
 
                 <button class="btn btn-lg btn-primary btn-block btn_custom" type="submit">Módosítás</button>
 
@@ -147,12 +101,12 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
+                <!--tr>
                     <th scope="row">Földrajz teszt</th>
                     <td>kvíz</td>
                     <td>Kontinensek kérdéssor.</td>
-                    <td><a class="btn btn-lg btn-success btn-block btn_custom" href="{{route('tasks.edit', $task->id)}}">Belépés</a></td>
-                </tr>
+                    <td><a class="btn btn-lg btn-success btn-block btn_custom" href="route('tasks.edit', $task->id)">Belépés</a></td>
+                </tr-->
                 </tbody>
             </table>
         </div>
@@ -171,13 +125,13 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
+                <!--tr>
                     <th scope="row">Földrajz teszt</th>
                     <td>kvíz</td>
                     <td>Kontinensek kérdéssor.</td>
-                    <td><a class="btn btn-lg btn-success btn-block btn_custom" href="{{route('tasks.edit', $task->id)}}">Szerkesztés</a></td>
-                    <td><a class="btn btn-lg btn-success btn-block btn_custom" href="{{route('tasks.edit', $task->id)}}">Megtekintés</a></td>
-                </tr>
+                    <td><a class="btn btn-lg btn-success btn-block btn_custom" href="{/{/route('tasks.edit', $task->id)}}">Szerkesztés</a></td>
+                    <td><a class="btn btn-lg btn-success btn-block btn_custom" href="{/{/route('tasks.edit', $task->id)}}">Megtekintés</a></td>
+                </tr-->
                 </tbody>
             </table>
         </div>

@@ -38,7 +38,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/profile">Profil</a>
+                <a class="nav-link" href="{{ route('profile') }}">Profil</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout_form').submit();">Kilépés</a>
