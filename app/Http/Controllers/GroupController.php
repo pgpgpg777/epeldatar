@@ -25,11 +25,11 @@ class GroupController extends Controller
             $gr_u = DB::table('groupuser')->where('group_id', $group->id)->get();
             $users[$group->id] = array();
             foreach ($gr_u as $gru) {
-                $u = User::find($gru->user_id)->first();
+                $u = User::where('id',$gru->user_id)->first();
                 array_push($users[$group->id], $u);
             }
         }
-    
+        //return $users;
         return view('groups.index', ['groups' => $groups, 'users' => $users]);
     }
 
@@ -85,10 +85,11 @@ class GroupController extends Controller
         $user_ids = DB::table('groupuser')->where('group_id', $group->id)->get();
 
         $users = array();
+        $tasks = DB::table('descriptions')->where('group_id', $group->id)->get();
         
         foreach($user_ids as $uid)
             array_push($users, User::find($uid->user_id)->get());
-        return view('groups.show', ['group'=>$group, 'users' => $users]);
+        return view('groups.show', ['group'=>$group, 'users' => $users, 'tasks' => $tasks]);
     }
 
     /**

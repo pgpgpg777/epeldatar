@@ -91,10 +91,10 @@
                     </td>
                     <td>>{{$task->text}}</td>
                         @if($task->type==0)
-                    <td><a class="btn btn-lg btn-success btn-block btn_custom" href="{{route('tasks.edit', $task->id)}}">Saját másolat</a></td>
-                    <td><a class="btn btn-lg btn-success btn-block btn_custom" href="{{route('show_task', $task->id)}}">Megtekintés</a></td>
+                    <!--td><a class="btn btn-lg btn-success btn-block btn_custom" href="{{route('tasks.edit', $task->id)}}">Saját másolat</a></td-->
+                    <td><a class="btn btn-lg btn-success btn-block btn_custom" href="{{route('show_task', $task->id)}}">Kitöltés</a></td>
                         @else
-                    <td><a class="btn btn-lg btn-success btn-block btn_custom" href="{{route('supplies.edit', $task->id)}}">Saját másolat</a></td>
+                    <!--td><a class="btn btn-lg btn-success btn-block btn_custom" href="{{route('supplies.edit', $task->id)}}">Saját másolat</a></td-->
                     <td><a class="btn btn-lg btn-success btn-block btn_custom" href="{{route('show_supply', $task->id)}}">Megtekintés</a></td>
                         @endif
                 </tr>

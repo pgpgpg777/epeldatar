@@ -71,7 +71,9 @@
     <div class="row">
         <div class="offset-lg-3 col-lg-6">
             <h2>Profil</h2>
-            <form class="form-signin" action="{{ route('users.update', $user->id) }}"method="post">
+            <h4>{{ $user->user_lastname }} {{ $user->user_firstname }}</h3>
+            <h6>({{$user->user_email}})</h4>
+            <!--form class="form-signin" action="{{ route('users.update', $user->id) }}"method="post">
                 @method("PUT")
                 <input type="text" id="user_lastname" name="user_lastname" class="form-control pad" placeholder="Vezetéknév" required autofocus value="{{ $user->user_lastname }}">
 
@@ -79,13 +81,13 @@
 
                 <input type="email" id="user_email" name="user_email" class="form-control pad" placeholder="Email-cím" required value="{{ $user->user_email }}">
 
-                <input type="password" id="inputPassword0" name="password" class="form-control pad" placeholder="Jelszó" >
+                <input type="password" id="password" name="password" class="form-control pad" placeholder="Jelszó" >
 
-                <input type="password" id="inputPassword1" name="password-confirm" class="form-control pad" placeholder="Jelszó mégegyszer">
+                <input type="password" id="password-confirm" name="password-confirm" class="form-control pad" placeholder="Jelszó mégegyszer">
 
                 <button class="btn btn-lg btn-primary btn-block btn_custom" type="submit">Módosítás</button>
 
-            </form>
+            </form-->
         </div>
     </div>
     <div class="row">
@@ -95,7 +97,6 @@
                 <thead>
                 <tr>
                     <th scope="col">Név</th>
-                    <th scope="col">Típus</th>
                     <th scope="col">Leírás</th>
                     <th scope="col">&nbsp;</th>
                 </tr>
@@ -105,14 +106,14 @@
                 <tr>
                     <th scope="row">{{$group->group_name}}</th>
                     <td>{{$group->description}}</td>
-                    <td><a class="btn btn-lg btn-success btn-block btn_custom" href="route('tasks.edit', $task->id)">Belépés</a></td>
+                    <td><a class="btn btn-lg btn-success btn-block btn_custom" href="{{route('groups.show', $group->id)}}">Belépés</a></td>
                 </tr>
                 @endforeach
                 </tbody>
             </table>
         </div>
     </div>
-    <div class="row">
+    <!--div class="row">
         <div class="col-lg-12 ">
             <h3>Saját példatáram</h3>
             <table class="table table-hover">
@@ -126,17 +127,17 @@
                 </tr>
                 </thead>
                 <tbody>
-                <!--tr>
+                <tr>
                     <th scope="row">Földrajz teszt</th>
                     <td>kvíz</td>
                     <td>Kontinensek kérdéssor.</td>
                     <td><a class="btn btn-lg btn-success btn-block btn_custom" href="{/{/route('tasks.edit', $task->id)}}">Szerkesztés</a></td>
                     <td><a class="btn btn-lg btn-success btn-block btn_custom" href="{/{/route('tasks.edit', $task->id)}}">Megtekintés</a></td>
-                </tr-->
+                </tr>
                 </tbody>
             </table>
         </div>
-    </div>
+    </div-->
 </div>
 
 <!-- Optional JavaScript -->

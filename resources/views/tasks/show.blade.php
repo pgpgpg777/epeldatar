@@ -84,7 +84,7 @@
     				all+=1;
 			});
 
-			var para = document.createElement("p");
+			var para = document.createElement("h2");
 			var pnode = document.createTextNode(result+"/"+all);
 			para.appendChild(pnode);
 

@@ -73,6 +73,7 @@
                 <tr>
                     <th scope="col">Név</th>
                     <th scope="col">Tagok</th>
+                    <th scope="col"></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -80,10 +81,13 @@
                 <tr>
                     <th scope="row">{{$group->group_name}}</th>
                     <td>
+                    @if($users)
                     @foreach($users[$group->id] as $user)
                         {{$user->user_lastname}} {{$user->user_firstname}}, 
                     @endforeach
+                    @endif
                     </td>
+                    <td><a class="btn btn-lg btn-success btn-block btn_custom" href="{{route('groups.show', $group->id)}}">Megtekintés</a></td>
                 </tr>
                 @endforeach
                 </tbody>
