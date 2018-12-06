@@ -6,6 +6,7 @@ use App\Group;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class GroupController extends Controller
 {
@@ -18,7 +19,18 @@ class GroupController extends Controller
     {
         //
         $groups = Group::all();
-        return view('groups.index', ['groups' => $groups]);
+        $users = array();
+        $user_ids = array();
+        foreach ($groups as $group) {
+            $gr_u = DB::table('groupuser')->where('group_id', $group->id)->get();
+            $users[$group->id] = array();
+            foreach ($gr_u as $gru) {
+                $u = User::find($gru->user_id)->first();
+                array_push($users[$group->id], $u);
+            }
+        }
+    
+        return view('groups.index', ['groups' => $groups, 'users' => $users]);
     }
 
     /**
@@ -28,8 +40,8 @@ class GroupController extends Controller
      */
     public function create()
     {
-        
-        return view('groups.create');
+        $users = User::all();
+        return view('groups.create', ['users' => $users]);
     }
 
     /**
@@ -41,29 +53,6 @@ class GroupController extends Controller
     public function store(Request $request)
     {
 
-        $students = array();
-
-        foreach ($request as $key => $value) {
-            if(preg_match("/\d+diak/", $key))
-                array_push($students, $value);
-        }
-
-        //TODO: e-mail alapján létrehozni a groupuser bejegyzéseket
-
-        //TODO
-        $request->validate([
-            'group_name' => 'required|string|max:50',
-            'description' => 'required|string|max:255',
-        ]);
-
-/**
-        { group_name: '',
-          description: '',
-          '1diak': 'asd@sdfg.hu',
-          '2diak': 'sdffsdf@asdf.hu',
-          '3diak': 'ydfasdf@dfgdfgh.hu' }
-*/
-
         $group = new Group;
 
         $group->group_name = $request->group_name;
@@ -71,7 +60,18 @@ class GroupController extends Controller
 
         $group->save();
 
-        return redirect()->route('groups.show',[$group]);
+        $u_id = array();
+        foreach ($request->request as $key => $value) {
+            if(preg_match("/users\d+/", $key)){
+                array_push($u_id, [
+                    'user_id' => $value,
+                    'group_id' => $group->id
+                ]);
+            }
+        }
+
+        DB::table('groupuser')->insert($u_id);
+        return redirect()->route('groups.index');
     }
 
     /**
@@ -87,7 +87,7 @@ class GroupController extends Controller
         $users = array();
         
         foreach($user_ids as $uid)
-            array_push($users, User::find($uid)->get());
+            array_push($users, User::find($uid->user_id)->get());
         return view('groups.show', ['group'=>$group, 'users' => $users]);
     }
 

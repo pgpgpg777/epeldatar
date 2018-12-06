@@ -85,11 +85,9 @@
                     <th scope="row">{{$user->user_lastname}}</th>
                     <td>{{$user->user_firstname}}</td>
                     <td>{{$user->user_email}}</td>
-                    <td>@ foreach($groups as $key => $group)
-                        @ if($key == $user->id)
-                        {/{$group->group_name}}, 
-                        @ endif
-                        @ endforeach
+                    <td>@foreach($groups[$user->id] as $group)
+                        {{$group->group_name}}, 
+                        @endforeach
                     </td>
                 </tr>
                 @endforeach

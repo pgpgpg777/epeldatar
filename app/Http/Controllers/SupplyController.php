@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Supply;
+use App\Group;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -27,7 +28,8 @@ class SupplyController extends Controller
      */
     public function create()
     {
-        return view('supplies.create');
+        $groups = Group::all();
+        return view('supplies.create', ['groups' => $groups]);
     }
 
     /**
@@ -48,22 +50,25 @@ class SupplyController extends Controller
           '3_desc':
            'asdfasdf éldfkgjioáij kjsadféishf opifgj apdfogij asőoidf ,odsfj kn éelk rjoaifj asdofkj lkj qweáotj aásojgdf aésdlkgj éij aéskdhf éoiauewtoiupiweroiu kjdahfgkjan ksjdfhaésidfj' }
 */  
-
+        //return $request;
         // type --> 0 = task, 1 = supply
+        
         $desc_id = DB::table('descriptions')->insertGetId(
             [
                 'name' => $request->supplies_name,
                 'type' => 1,
                 'text' => $request->supplies_desc,
-                'group_id' => 1 ///TODO
+                'group_id' => $request->supplies_teams 
             ]
         );
+
 
         $components = array();
         $sequence_num;
         $type;
         $type_value;
-        foreach ($request as $key => $value) {
+        
+        foreach ($request->request as $key => $value) {
             if(preg_match("/\d+_.+/", $key)){
                 $sequence_num = explode("_", $key)[0];
                 $type_value = $value;
@@ -84,8 +89,6 @@ class SupplyController extends Controller
                 ]);
             }
         }
-
-        $group_ids = array(); //?????
         
 
         DB::table('components')->insert(
@@ -106,11 +109,11 @@ class SupplyController extends Controller
     public function show_supply($supply_id)
     {
 
-        $description  = DB::table('descriptions')->where('id', $supply_id)->get();
-        $components = DB::table('components')->where('desc_id', $supply_id)->get();
-        
-        return [$description, $components];
-        return view('supplies.show', ['supply'=>$supply]);
+        $description  = DB::table('descriptions')->where('id', $supply_id)->first();
+        $components = DB::table('components')->where('desc_id', $supply_id)->orderBy('sequence_num')->get();
+
+        //return [$description, $components];
+        return view('supplies.show', ['description'=>$description, 'components' => $components]);
     }
 
     /**

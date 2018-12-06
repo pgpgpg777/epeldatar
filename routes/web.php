@@ -29,6 +29,7 @@ Route::resources([
 Route::get('/profile', 'UserController@profile')->name('profile');
 
 Route::get('/show_supply/{supply_id}', 'SupplyController@show_supply')->name('show_supply');
+Route::get('/show_task/{task_id}', 'TaskController@show_task')->name('show_task');
 
 Auth::routes();
 

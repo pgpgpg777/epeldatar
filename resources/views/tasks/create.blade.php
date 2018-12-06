@@ -21,7 +21,7 @@
             font-family: 'Amatic SC', cursive;
             font-size: 24px;
             letter-spacing: 1px;
-            background: url("bg.png");
+            background: url("/bg.png");
         }
         body {
 
@@ -65,8 +65,8 @@
             var check = document.createElement("input");
             input.type = 'text';
             check.type = 'checkbox'
-            input.name = q.toString() + 'valasz' + a.toString();
-            check.name = q.toString() + 'jovagyrossz' + a.toString();
+            input.name = q.toString() + '_valasz_' + a.toString();
+            check.name = q.toString() + '_jovagyrossz_' + a.toString();
             input.classList.add('form-control');
             input.classList.add('col-lg-6');
             check.classList.add('form-control');
@@ -93,67 +93,25 @@
     </script>
 </head>
 <body class="text-center">
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#"><i class="fa fa-book" aria-hidden="true"></i></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Példatár</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Tanulás
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="tasks.html">Feladatok</a>
-                    <a class="dropdown-item" href="new_supplies.html">Új segédanyag létrehozása</a>
-                    <a class="dropdown-item" href="new_task.html">Új kvíz létrehozása</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown_groups" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Csoportok
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="groups.html">Csoportok</a>
-                    <a class="dropdown-item" href="new_group.html">Új csoport létrehozása</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown_users" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Felhasználók
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="users.html">Felhasználók</a>
-                    <a class="dropdown-item" href="new_user.html">Új felhasználó létrehozása</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="profil.html">Profil</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">Kilépés</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-
+@include('layouts.nav')
 <div class="container">
     <div class="row">
         <div class="offset-lg-1 col-lg-10 ">
             <h2>Kvíz készítése</h2>
-            <form method="post" action="{{ route('task.store') }}">
+            <form method="post" action="{{ route('tasks.store') }}">
+                @csrf
                 <div class="form-group">
                     <label for="test_name">Kvíz neve</label>
-                    <input type="text" class="form-control"  id="test_name" name="test_name" placeholder="Irodalom óra segédanyagok">
+                    <input type="text" class="form-control"  id="test_name" name="test_name" placeholder="Adatb reggel 7-es beugró">
                 </div>
                 <div class="form-group">
                     <label for="teams">Csoportok hozzárendelése</label>
-                    <input type="text" class="form-control" id="teams" name="teams" placeholder="pl.: 8.A">
+                    <select name="teams" class="form-control" id="supplies_teams">
+                        @foreach($groups as $group)
+                        <option value="{{$group->id}}">{{$group->group_name}}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="description">Leírás</label>

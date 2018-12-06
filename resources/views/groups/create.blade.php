@@ -61,9 +61,9 @@
         function addstudent(){
             q++;
             var container = document.getElementById("valaszok");
-            var input = document.createElement("input");
-            input.type = 'email';
-            input.name = q.toString() + "diak";
+            var input = document.createElement("select");
+            input.innerHTML = document.getElementById("users").innerHTML;
+            input.name = "users" + q.toString();
             input.classList.add('form-control');
             input.classList.add('col-lg-12');
             container.appendChild(input);
@@ -79,6 +79,7 @@
         <div class="offset-lg-1 col-lg-10 ">
             <h2>Új csoport létrehozása</h2>
             <form method="post" action="{{ route('groups.store') }}">
+                @csrf
                 <div class="form-group">
                     <label for="group_name">Csoport neve</label>
                     <input type="text" class="form-control"  id="group_name" name="group_name" placeholder="pl.: 8.A">
@@ -91,11 +92,22 @@
                 <div class="form-group">
                     <label>Diákok hozzáadása (e-mail címek segítségével)</label>
                 </div>
+
+                <div class="form-group">
+                    <label for="users">Diákok hozzáadása</label>
+                    <select name="users0" class="form-control" id="users">
+                        @foreach($users as $user)
+                        <option value="{{$user->id}}">{{$user->user_lastname}} {{$user->user_firstname}} ({{$user->user_email}})</option>
+                        @endforeach
+                    </select>
+                </div>
+
+
                 <div id="valaszok">
 
                 </div>
                 <button type="button" class="btn btn-success btn_custom" onclick="addstudent()">Új diák hozzáadása</button><br><br>
-
+                
                 <hr class="new">
                 <button type="submit" class="btn btn-default">Lérehozás</button><br>
             </form>

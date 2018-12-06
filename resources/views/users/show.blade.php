@@ -101,12 +101,13 @@
                 </tr>
                 </thead>
                 <tbody>
-                <!--tr>
-                    <th scope="row">Földrajz teszt</th>
-                    <td>kvíz</td>
-                    <td>Kontinensek kérdéssor.</td>
+                @foreach($groups as $group)
+                <tr>
+                    <th scope="row">{{$group->group_name}}</th>
+                    <td>{{$group->description}}</td>
                     <td><a class="btn btn-lg btn-success btn-block btn_custom" href="route('tasks.edit', $task->id)">Belépés</a></td>
-                </tr-->
+                </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>

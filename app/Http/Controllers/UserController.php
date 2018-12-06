@@ -14,9 +14,10 @@ class UserController extends Controller
     public function profile(){
        // return view('profile', array('user' => Auth::user()) );
 
+        return redirect()->route('users.show',[Auth::user()]);
         $group_ids = DB::table('groupuser')->where('user_id', Auth::user()->id)->get();
         $groups = array();
-       // $tasks = array();
+        $tasks = array();
 
         foreach($group_ids as $gid){
             $gr = Group::find($gid->group_id);
@@ -38,18 +39,17 @@ class UserController extends Controller
         //
         $users = User::all();
         $groups = array();
-/*
-        foreach ($users as $key => $user) {
+
+        foreach ($users as $user) {
             $groupids =  DB::table('groupuser')->where('user_id', $user->id)->get();
             $groups[$user->id] = array();
             foreach ($groupids as $gid) {
-                $gr = Group::find($gid);
-                alert($gr->group_name);
+                $gr = Group::find($gid->group_id)->first();
                 array_push($groups[$user->id], $gr);
             }
         }
-*/
-        return view('users.index', ['users' => $users/*, 'groups' => $groups*/]);
+
+        return view('users.index', ['users' => $users, 'groups' => $groups]);
     }
 
     /**
@@ -98,14 +98,16 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-
-        $group_ids = DB::table('groupuser')->where('user_id', $user->id)->get();
+        $group_ids = DB::table('groupuser')->where('user_id', Auth::user()->id)->get();
         $groups = array();
-/*
-        foreach($group_ids as $gid)
-            array_push($groups, Group::find($gid));
-*/
-        return view('users.show', ['user'=>$user/*, 'groups' => $groups*/]);
+        $tasks = array();
+
+        foreach($group_ids as $gid){
+            $gr = Group::find($gid->group_id);
+            array_push($groups, $gr);
+            $tasks = DB::table('descriptions')->where('group_id', $gid->group_id)->get();
+        }
+        return view('users.show', ['user'=>$user, 'groups' => $groups]);
         //return $user;
     }
 

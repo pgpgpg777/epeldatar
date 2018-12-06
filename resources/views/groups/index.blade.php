@@ -73,15 +73,19 @@
                 <tr>
                     <th scope="col">Név</th>
                     <th scope="col">Tagok</th>
-                    <th scope="col">Tulajdonos</th>
                 </tr>
                 </thead>
                 <tbody>
+                    @foreach($groups as $group)
                 <tr>
-                    <th scope="row">8.A</th>
-                    <td>Freddie Mercury, Jimi Hendrix, Curt Cobain, Jimmy Page, Robert Plant, William Shatner, Patrick Stewart</td>
-                    <td>Gipsz Jakab</td>
+                    <th scope="row">{{$group->group_name}}</th>
+                    <td>
+                    @foreach($users[$group->id] as $user)
+                        {{$user->user_lastname}} {{$user->user_firstname}}, 
+                    @endforeach
+                    </td>
                 </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>

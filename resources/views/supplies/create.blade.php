@@ -139,7 +139,7 @@
 <body class="text-center">
 @include('layouts.nav')
 <div class="container">
-    <form method="post" action="{{ route('supplies.store') }}">
+    <form id="newsupply" method="post" action="{{ route('supplies.store') }}">
         @csrf
     <div class="row">
         <div class="col-lg-6">
@@ -149,7 +149,12 @@
                 </div>
                 <div class="form-group">
                     <label for="supplies_teams">Csoportok hozzárendelése</label>
-                    <input type="text" class="form-control" id="supplies_teams" name="supplies_teams" placeholder="pl.: 8.A">
+                    <!--input type="text" class="form-control" id="supplies_teams" name="supplies_teams" placeholder="pl.: 8.A"-->
+                    <select name="supplies_teams" class="form-control" id="supplies_teams">
+                        @foreach($groups as $group)
+                        <option value="{{$group->id}}">{{$group->group_name}}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="supplies_desc">Leírás</label>
@@ -163,7 +168,7 @@
                     <button type="button" class="btn btn-success btn_custom" onclick="addVideo(getElementById('vidi').value)">YouTube videó</button>
                     <br>
                     <div class="form-group">
-                    <input type="text" class="form-control" id="vidi" placeholder="YouTube link">
+                    <input type="text" class="form-control" id="vidi" placeholder="YouTube vagy kép link">
                     </div>
                 </div>
             </div>
